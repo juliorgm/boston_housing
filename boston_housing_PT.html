@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>.ipynb</title>
+<title>boston_housing_PT</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13713,7 +13713,11 @@ Desvio padrão dos preços: $165,171.13
 <p><strong>Resposta: </strong></p>
 <ul>
 <li>A max_deapth escolhido foi de 6:</li>
-<li>Os primeiros 200 pontos adicionados mostram que o score de treinamento e teste convergem para aproximadamente para o score de 0,8. A partir deste ponto (200) a curva chegou ao seu platô e existem apenas pequenas oscilações nos scores de treinamento o que significa que as melhorias são insignificantes logo essas alterações não justificam o esforço de criar mais pontos de teste.</li>
+<li>A medida que os pontos de treinamento são adicionados o score da curva de treinamento diminui levemente e quanto chega aos 250 pontos está com um score de aproximadamente <code>0,9</code>  e a partir daí a variação é aparemente insiginificante.</li>
+<li><p>Já a curva de teste tem seu score aumentado conforme os pontos de testa aumentar e a partir no ponto 200 chega em seu score mais alto. As duas curvas nunca se tocam (então adicionar novos pontos de treino a partir daí não resultará em grandes melhorias no modelo) o que reforça a ideia de que os dados de treinamento estão superajustados e teremos uma alta variancia.</p>
+</li>
+<li><p>RESUMINDO: Conforme o número de pontos treinamento aumenta as curvas de teste e trenamento se aproximam mas a partir do ponto 200 a aproximação das curvas cessam o que denota um certo grau de overffiting na curva de treinamento. Provavelmente utilizando um max_depth um pouco mais baixo teremos resultados melhores para modelo (Exemplo do gráfico com max_depth=3)</p>
+</li>
 </ul>
 
 </div>
@@ -13913,7 +13917,7 @@ Desvio padrão dos preços: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Importar &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39; e &#39;GridSearchCV&#39;</span>
